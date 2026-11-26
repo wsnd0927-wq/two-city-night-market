@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="떡볶이, 辣炒年糕">
+  <ellipse cx="80" cy="140" rx="55" ry="9" fill="#2a1a17" opacity=".14"/>
+  <g fill="none" stroke="#f5e5c9" stroke-width="4" stroke-linecap="round" opacity=".62">
+    <path d="M57 50c-8-10 7-16 0-27"/>
+    <path d="M80 45c-8-11 7-17 0-29"/>
+    <path d="M103 51c-8-10 7-16 0-27"/>
+  </g>
+  <path d="M30 78Q33 125 80 134Q127 125 130 78Z" fill="#d8473d" stroke="#2c1a18" stroke-width="5" stroke-linejoin="round"/>
+  <ellipse cx="80" cy="78" rx="50" ry="15" fill="#f26b50" stroke="#2c1a18" stroke-width="5"/>
+  <ellipse cx="80" cy="79" rx="42" ry="10.5" fill="#8f2d2b"/>
+  <g stroke="#2c1a18" stroke-width="4" stroke-linejoin="round">
+    <rect x="45" y="66" width="17" height="36" rx="8.5" fill="#f9e8c9" transform="rotate(-16 53 84)"/>
+    <rect x="66" y="62" width="17" height="39" rx="8.5" fill="#f5ddba" transform="rotate(10 74 81)"/>
+    <rect x="88" y="68" width="16" height="34" rx="8" fill="#f9e8c9" transform="rotate(-4 96 85)"/>
+    <path d="M49 68l20-10 17 16-7 16-21 2-11-12Z" fill="#f3c65a"/>
+    <path d="M108 77a12 12 0 1 0 0 24 12 12 0 0 0 0-24Z" fill="#fff7e5"/>
+    <circle cx="108" cy="89" r="6" fill="#f2b943"/>
+    <rect x="42" y="83" width="17" height="6" rx="3" fill="#77b66b" transform="rotate(24 50 86)"/>
+    <rect x="91" y="59" width="15" height="6" rx="3" fill="#6ba75f" transform="rotate(-22 98 62)"/>
+    <rect x="70" y="94" width="17" height="6" rx="3" fill="#8cc777" transform="rotate(8 78 97)"/>
+  </g>
+  <circle cx="58" cy="75" r="2.4" fill="#f9e8c9" opacity=".9"/>
+  <circle cx="90" cy="91" r="2" fill="#f9e8c9" opacity=".8"/>
+  <path d="M40 103q9 11 20 13" fill="none" stroke="#f29078" stroke-width="4" stroke-linecap="round" opacity=".65"/>
+</svg>

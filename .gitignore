@@ -1,0 +1,24 @@
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+
+# Local dependencies and logs
+node_modules/
+*.log
+
+# Local test artifacts (README screenshots live in assets/)
+tests/*.png
+tests/*.jpg
+tests/*.webp
+
+# Secrets and local environment
+.env
+.env.*
+*.pem
+*.key
+
+# Local scratch files
+*.local

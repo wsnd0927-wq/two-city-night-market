@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11101a">
+  <title>두 도시 야시장 · 双城夜市</title>
+  <meta name="description" content="서울과 상하이의 야시장을 걸으며 주문을 통역하고 미식 여권을 완성하는 한·중 이중언어 인터랙티브 웹 게임. 在首尔与上海夜市之间穿梭，翻译点单并集齐美食护照的双语互动网页游戏。">
+  <meta property="og:title" content="두 도시 야시장 · 双城夜市">
+  <meta property="og:description" content="한입의 서울, 한입의 상하이. 여섯 번의 주문을 통역하고 미식 여권을 완성하세요. / 一口首尔，一口上海。完成六次点单翻译，集齐美食护照。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/preview.jpg">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">
+    <span lang="ko">본문으로 바로가기</span>
+    <span lang="zh-CN">跳到正文</span>
+  </a>
+
+  <div class="page-grain" aria-hidden="true"></div>
+  <div class="ambient" aria-hidden="true">
+    <div class="moon"></div>
+    <div class="stars">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+    <div class="lantern lantern-a"><span></span></div>
+    <div class="lantern lantern-b"><span></span></div>
+    <div class="lantern lantern-c"><span></span></div>
+    <svg class="skyline" viewBox="0 0 1600 340" preserveAspectRatio="none" focusable="false">
+      <path d="M0 300V238h54v-42h31v42h38v-75h29v-24h18v24h21v75h53v-39h51v39h37v-108h28v-28h17v28h39v108h55v-62h60v62h41v-93h26v-21h19v21h25v93h52v-49h47v49h43v-119h30v-23h17v23h26v119h57v-71h54v71h51v-38h60v38h42v-89h30v-31h18v31h23v89h55v-56h53v56h58v-83h27v-29h16v29h22v83h58v-47h49v47h51v-106h28v-24h18v24h31v106h55v-62h49v62h37v-33h60v33h38v-77h30v-25h17v25h26v77h53v-44h48v44h44v40H0z" fill="#191725"/>
+    </svg>
+    <div class="ambient-glow"></div>
+  </div>
+
+  <header class="site-header">
+    <button class="brand" id="homeButton" type="button">
+      <span class="brand-seal" aria-hidden="true">夜</span>
+      <span class="brand-text">
+        <span class="brand-ko" lang="ko">두 도시 야시장</span>
+        <span class="brand-zh" lang="zh-CN">双城夜市</span>
+      </span>
+      <span class="sr-only" lang="ko">처음 화면으로</span>
+      <span class="sr-only" lang="zh-CN">返回首页</span>
+    </button>
+
+    <div class="header-actions">
+      <button class="sound-button" id="soundToggle" type="button" aria-pressed="false">
+        <span class="sound-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path class="sound-wave" d="M16 8.5c1.6 1.2 1.6 5.8 0 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path class="sound-slash" d="M4 4l16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <span class="sound-label" id="soundLabel">
+          <span lang="ko">소리 켜기</span><span lang="zh-CN">开启声音</span>
+        </span>
+      </button>
+
+      <button class="passport-button" id="openPassport" type="button" aria-haspopup="dialog" aria-controls="passportDialog">
+        <span class="passport-button-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" focusable="false"><path d="M5 4.5h12.5a1.5 1.5 0 0 1 1.5 1.5v13H6.5A2.5 2.5 0 0 1 4 16.5v-10A2 2 0 0 1 6 4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7.5 9h8M7.5 12h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="15.2" cy="15.6" r="2.6" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+        </span>
+        <span class="passport-button-text">
+          <span lang="ko">여권</span><span lang="zh-CN">护照</span>
+        </span>
+        <span class="stamp-count" id="passportCount">0/6</span>
+        <span class="sr-only" lang="ko">열기</span>
+        <span class="sr-only" lang="zh-CN">打开</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="mainContent">
+
+    <!-- ───────────────────────── Intro ───────────────────────── -->
+    <section class="view intro-view is-active" id="introView" aria-labelledby="heroTitle">
+      <div class="intro-copy">
+        <p class="eyebrow">
+          <span class="eyebrow-rule" aria-hidden="true"></span>
+          <span lang="ko">야시장 미식 여권</span>
+          <span class="eyebrow-slash" aria-hidden="true">/</span>
+          <span lang="zh-CN">夜市美食护照</span>
+        </p>
+
+        <h1 class="hero-title" id="heroTitle">
+          <span class="hero-title-ko" lang="ko">한입의 서울,<br>한입의 상하이</span>
+          <span class="hero-title-zh" lang="zh-CN">一口首尔，一口上海</span>
+        </h1>
+
+        <p class="hero-lead">
+          <span lang="ko">여섯 개의 포장마차, 여섯 번의 주문. 손님의 말을 점원에게 전하며 두 도시를 잇는 미식 여권을 완성하세요.</span>
+          <span lang="zh-CN">六个摊位，六次点单。把顾客的话转达给摊主，完成一本连接两座城市的美食护照。</span>
+        </p>
+
+        <div class="hero-actions">
+          <button class="button button-primary" id="startButton" type="button">
+            <span class="button-copy" id="startButtonCopy">
+              <span lang="ko">야시장 시작하기</span>
+              <span lang="zh-CN">开始逛夜市</span>
+            </span>
+            <span class="button-arrow" aria-hidden="true">→</span>
+          </button>
+          <button class="text-button" id="previewPassportButton" type="button">
+            <span lang="ko">여권 미리 보기</span>
+            <span lang="zh-CN">预览护照</span>
+          </button>
+          <button class="reset-link" id="introResetButton" type="button" hidden>
+            <span lang="ko">새 여권 만들기</span>
+            <span lang="zh-CN">新建护照</span>
+          </button>
+        </div>
+
+        <dl class="hero-stats">
+          <div>
+            <dt><span lang="ko">포장마차</span><span lang="zh-CN">摊位</span></dt>
+            <dd>6</dd>
+          </div>
+          <div>
+            <dt><span lang="ko">오늘의 한마디</span><span lang="zh-CN">实用短句</span></dt>
+            <dd>6</dd>
+          </div>
+          <div>
+            <dt><span lang="ko">예상 시간</span><span lang="zh-CN">预计用时</span></dt>
+            <dd><span lang="ko">5분</span><span lang="zh-CN">5分钟</span></dd>
+          </div>
+        </dl>
+
+        <p class="language-note">
+          <span class="language-dot" aria-hidden="true"></span>
+          <span lang="ko">모든 화면은 한국어와 중국어로 함께 제공됩니다.</span>
+          <span lang="zh-CN">所有界面均以韩语和中文同时呈现。</span>
+        </p>
+      </div>
+
+      <aside class="intro-passport" aria-label="미식 여권 미리 보기, 美食护照预览">
+        <div class="passport-shadow" aria-hidden="true"></div>
+        <div class="passport-cover">
+          <div class="passport-cover-head">
+            <p class="passport-kicker">
+              <span lang="ko">미식 여권</span>
+              <span lang="zh-CN">美食护照</span>
+            </p>
+            <span class="passport-seal" aria-hidden="true">
+              <span>입국</span>
+              <span>入境</span>
+            </span>
+          </div>
+
+          <div class="passport-title-row">
+            <div>
+              <p class="passport-label"><span lang="ko">여정</span><span lang="zh-CN">行程</span></p>
+              <p class="passport-route">
+                <span>서울 <small>首尔</small></span>
+                <span class="route-line" aria-hidden="true"></span>
+                <span>상하이 <small>上海</small></span>
+              </p>
+            </div>
+            <span class="passport-serial" aria-hidden="true">NO. 2026-11</span>
+          </div>
+
+          <div class="passport-stamps" aria-hidden="true">
+            <div class="stamp-slot" style="--slot-accent:#ff7455">
+              <span class="slot-num">01</span>
+              <img src="assets/tteokbokki.svg" alt="" width="56" height="56">
+              <span class="slot-name">떡볶이<small>辣炒年糕</small></span>
+            </div>
+            <div class="stamp-slot" style="--slot-accent:#f4c95d">
+              <span class="slot-num">02</span>
+              <img src="assets/bungeoppang.svg" alt="" width="56" height="56">
+              <span class="slot-name">붕어빵<small>鲫鱼饼</small></span>
+            </div>
+            <div class="stamp-slot" style="--slot-accent:#8fe0c0">
+              <span class="slot-num">03</span>
+              <img src="assets/gimbap.svg" alt="" width="56" height="56">
+              <span class="slot-name">김밥<small>紫菜包饭</small></span>
+            </div>
+            <div class="stamp-slot" style="--slot-accent:#8fb8ff">
+              <span class="slot-num">04</span>
+              <img src="assets/xiaolongbao.svg" alt="" width="56" height="56">
+              <span class="slot-name">샤오롱바오<small>小笼包</small></span>
+            </div>
+            <div class="stamp-slot" style="--slot-accent:#ff9d7a">
+              <span class="slot-num">05</span>
+              <img src="assets/malatang.svg" alt="" width="56" height="56">
+              <span class="slot-name">마라탕<small>麻辣烫</small></span>
+            </div>
+            <div class="stamp-slot" style="--slot-accent:#d8a6ff">
+              <span class="slot-num">06</span>
+              <img src="assets/tanghulu.svg" alt="" width="56" height="56">
+              <span class="slot-name">탕후루<small>糖葫芦</small></span>
+            </div>
+          </div>
+
+          <div class="passport-cover-foot">
+            <p>
+              <span lang="ko">주문을 통역할 때마다 도장이 하나씩 찍혀요.</span>
+              <span lang="zh-CN">每完成一次点单翻译，就会盖上一枚印章。</span>
+            </p>
+            <span class="passport-mark" aria-hidden="true">서울 · 상하이</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ───────────────────────── Game ───────────────────────── -->
+    <section class="view game-view" id="gameView" aria-label="야시장 주문 게임, 夜市点单游戏" hidden>
+      <h1 class="sr-only">
+        <span lang="ko">야시장 주문 게임</span>
+        <span lang="zh-CN">夜市点单游戏</span>
+      </h1>
+      <div class="game-progress">
+        <div class="progress-copy">
+          <span lang="ko">미식 여권</span>
+          <span lang="zh-CN">美食护照</span>
+        </div>
+        <div class="progress-track" id="progressTrack" aria-hidden="true"></div>
+        <div class="progress-count">
+          <span id="progressCurrent">1</span><span class="progress-divider">/</span><span>6</span>
+        </div>
+      </div>
+
+      <div class="game-grid">
+        <article class="stall-scene" id="stallScene" aria-label="포장마차 장면, 摊位场景"></article>
+
+        <section class="order-panel" aria-labelledby="challengeTitle">
+          <div class="panel-heading">
+            <p class="panel-kicker">
+              <span lang="ko">오늘의 주문</span>
+              <span lang="zh-CN">今日点单</span>
+            </p>
+            <p class="panel-step" id="panelStep">01</p>
+          </div>
+
+          <div class="order-ticket">
+            <div class="ticket-stub" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="customer-row">
+              <span class="customer-avatar" aria-hidden="true">客</span>
+              <div>
+                <p class="customer-label">
+                  <span lang="ko">손님</span>
+                  <span lang="zh-CN">顾客</span>
+                </p>
+                <p class="ticket-label">
+                  <span lang="ko">주문서</span>
+                  <span lang="zh-CN">点单条</span>
+                </p>
+              </div>
+              <span class="ticket-time" id="ticketTime">21:12</span>
+            </div>
+            <blockquote class="order-quote" id="orderQuote"></blockquote>
+          </div>
+
+          <div class="challenge-heading">
+            <h2 id="challengeTitle">
+              <span lang="ko">점원이 되어 대답을 골라 주세요</span>
+              <span lang="zh-CN">请扮演摊主，选择恰当的回应</span>
+            </h2>
+            <p>
+              <span lang="ko">손님의 부탁을 가장 알맞게 전달한 카드를 고르세요.</span>
+              <span lang="zh-CN">选出最准确传达顾客请求的一张卡片。</span>
+            </p>
+          </div>
+
+          <div class="choices" id="choices" role="group" aria-labelledby="challengeTitle"></div>
+
+          <section class="order-notes" id="orderNotes" aria-labelledby="orderNotesTitle">
+            <div class="order-notes-head">
+              <span class="order-notes-mark" aria-hidden="true">✓</span>
+              <p class="order-notes-title" id="orderNotesTitle">
+                <span lang="ko">통역 확인 메모</span>
+                <span lang="zh-CN">翻译确认笔记</span>
+              </p>
+              <span class="order-notes-stamp" aria-hidden="true">메모<small>笔记</small></span>
+            </div>
+            <ul class="order-notes-list">
+              <li>
+                <span class="notes-num" aria-hidden="true">01</span>
+                <span lang="ko">수량과 인분을 확인해요.</span>
+                <span lang="zh-CN">确认数量和份数。</span>
+              </li>
+              <li>
+                <span class="notes-num" aria-hidden="true">02</span>
+                <span lang="ko">맛과 빼야 할 재료를 확인해요.</span>
+                <span lang="zh-CN">确认口味和需要去掉的食材。</span>
+              </li>
+              <li>
+                <span class="notes-num" aria-hidden="true">03</span>
+                <span lang="ko">포장 방법까지 확인해요.</span>
+                <span lang="zh-CN">连打包方式也确认一下。</span>
+              </li>
+            </ul>
+          </section>
+
+          <div class="feedback" id="feedback" hidden></div>
+
+          <div class="hint-zone" id="hintZone" hidden>
+            <button class="hint-button" id="hintButton" type="button" aria-expanded="false" aria-controls="hintText">
+              <span class="hint-icon" aria-hidden="true">?</span>
+              <span lang="ko">힌트 보기</span>
+              <span lang="zh-CN">查看提示</span>
+            </button>
+            <p class="hint-text" id="hintText" hidden></p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ───────────────────────── Result ───────────────────────── -->
+    <section class="view result-view" id="resultView" aria-labelledby="resultTitle" hidden>
+      <div class="result-heading">
+        <p class="eyebrow">
+          <span class="eyebrow-rule" aria-hidden="true"></span>
+          <span lang="ko">여권 완성</span>
+          <span class="eyebrow-slash" aria-hidden="true">/</span>
+          <span lang="zh-CN">护照完成</span>
+        </p>
+        <h1 id="resultTitle">
+          <span lang="ko">두 도시를 잇는 한 끼</span>
+          <span lang="zh-CN">连接两座城市的一餐</span>
+        </h1>
+        <p class="result-lead">
+          <span lang="ko">서울의 매콤함에서 상하이의 달콤함까지, 여섯 번의 주문을 모두 통역했어요.</span>
+          <span lang="zh-CN">从首尔的甜辣到上海的甜蜜，六次点单全部翻译完成。</span>
+        </p>
+      </div>
+
+      <div class="result-layout">
+        <article class="result-passport" id="resultPassport" aria-label="완성된 미식 여권, 已完成的美食护照">
+          <div class="result-passport-head">
+            <div>
+              <p class="passport-kicker">
+                <span lang="ko">미식 여권</span>
+                <span lang="zh-CN">美食护照</span>
+              </p>
+              <p class="result-passport-route">서울 <span aria-hidden="true">→</span> 상하이 <small>首尔 → 上海</small></p>
+            </div>
+            <span class="result-passport-seal" aria-hidden="true">완료<small>完成</small></span>
+          </div>
+          <div class="result-stamps" id="resultStamps"></div>
+          <div class="result-passport-foot">
+            <span id="resultSerial" aria-hidden="true">2026-11</span>
+            <span>
+              <span lang="ko">두 도시 야시장 미식 여권</span>
+              <span lang="zh-CN">双城夜市美食护照</span>
+            </span>
+          </div>
+        </article>
+
+        <aside class="result-summary">
+          <p class="panel-kicker">
+            <span lang="ko">나의 칭호</span>
+            <span lang="zh-CN">我的称号</span>
+          </p>
+          <h2 class="result-rank" id="resultRank"></h2>
+          <p class="result-note" id="resultNote"></p>
+
+          <dl class="result-stats">
+            <div>
+              <dt><span lang="ko">모은 도장</span><span lang="zh-CN">收集印章</span></dt>
+              <dd>6 / 6</dd>
+            </div>
+            <div>
+              <dt><span lang="ko">한 번에 맞힌 주문</span><span lang="zh-CN">一次答对的订单</span></dt>
+              <dd id="firstTryCount">6 / 6</dd>
+            </div>
+            <div>
+              <dt><span lang="ko">다시 고른 횟수</span><span lang="zh-CN">重新选择次数</span></dt>
+              <dd id="retryCount">0</dd>
+            </div>
+          </dl>
+
+          <div class="result-actions">
+            <button class="button button-primary" id="restartButton" type="button">
+              <span lang="ko">새 여권으로 다시 걷기</span>
+              <span lang="zh-CN">换本护照再逛一次</span>
+            </button>
+            <div class="result-secondary-actions">
+              <button class="small-button" id="copyResultButton" type="button">
+                <span lang="ko">결과 복사</span>
+                <span lang="zh-CN">复制结果</span>
+              </button>
+              <button class="small-button" id="printResultButton" type="button">
+                <span lang="ko">여권 인쇄</span>
+                <span lang="zh-CN">打印护照</span>
+              </button>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="phrasebook" aria-labelledby="phrasebookTitle">
+        <div class="phrasebook-heading">
+          <div>
+            <p class="panel-kicker">
+              <span lang="ko">오늘의 한마디</span>
+              <span lang="zh-CN">今日实用句</span>
+            </p>
+            <h2 id="phrasebookTitle">
+              <span lang="ko">내일도 쓸 수 있는 여섯 문장</span>
+              <span lang="zh-CN">明天也用得上的六句话</span>
+            </h2>
+          </div>
+          <p>
+            <span lang="ko">여권을 접어도, 한마디는 남습니다.</span>
+            <span lang="zh-CN">护照合上了，句子还留在这里。</span>
+          </p>
+        </div>
+        <div class="phrase-grid" id="phraseGrid"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      <span lang="ko">서울–상하이 야시장 미식 여권</span>
+      <span lang="zh-CN">首尔–上海夜市美食护照</span>
+    </p>
+    <p>
+      <span lang="ko">AI 바이브 코딩으로 만든 인터랙티브 웹 작품</span>
+      <span lang="zh-CN">用 AI 氛围编程制作的互动网页作品</span>
+    </p>
+  </footer>
+
+  <!-- Passport dialog -->
+  <dialog class="passport-dialog" id="passportDialog" aria-labelledby="passportDialogTitle">
+    <div class="dialog-inner">
+      <header class="dialog-head">
+        <div>
+          <p class="panel-kicker">
+            <span lang="ko">미식 여권</span>
+            <span lang="zh-CN">美食护照</span>
+          </p>
+          <h2 id="passportDialogTitle">
+            <span lang="ko">지금까지 모은 도장</span>
+            <span lang="zh-CN">目前收集的印章</span>
+          </h2>
+        </div>
+        <button class="dialog-close" id="closePassport" type="button" aria-label="여권 닫기, 关闭护照">
+          <span aria-hidden="true">×</span>
+          <span class="dialog-close-text">
+            <span lang="ko">닫기</span>
+            <span lang="zh-CN">关闭</span>
+          </span>
+        </button>
+      </header>
+
+      <div class="dialog-progress">
+        <div class="dialog-progress-label">
+          <span>
+            <span lang="ko">완성한 주문</span>
+            <span lang="zh-CN">完成的点单</span>
+          </span>
+          <strong id="dialogCount">0 / 6</strong>
+        </div>
+        <div class="dialog-progress-bar" aria-hidden="true"><span id="dialogProgressFill"></span></div>
+      </div>
+
+      <div class="passport-entries" id="passportEntries"></div>
+
+      <footer class="dialog-foot">
+        <p>
+          <span lang="ko">도장을 모을수록 오늘의 한마디가 이 여권에 쌓여요.</span>
+          <span lang="zh-CN">收集的印章越多，今日实用句就会留在这本护照里。</span>
+        </p>
+      </footer>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <p class="sr-only" id="liveStatus" aria-live="polite"></p>
+  <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+
+  <noscript>
+    <div class="noscript">
+      <p lang="ko">이 작품을 즐기려면 JavaScript를 켜 주세요.</p>
+      <p lang="zh-CN">请开启 JavaScript 以体验本作品。</p>
+    </div>
+  </noscript>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

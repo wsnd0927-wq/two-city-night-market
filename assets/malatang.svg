@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="마라탕, 麻辣烫">
+  <ellipse cx="80" cy="142" rx="56" ry="9" fill="#2a1a17" opacity=".14"/>
+  <g fill="none" stroke="#f5e5c9" stroke-width="4" stroke-linecap="round" opacity=".6">
+    <path d="M53 45c-8-10 7-16 0-27"/>
+    <path d="M80 39c-8-11 7-17 0-29"/>
+    <path d="M107 44c-8-10 7-16 0-27"/>
+  </g>
+  <g stroke="#2c1a18" stroke-width="4" stroke-linejoin="round">
+    <path d="M47 80 32 25" fill="none" stroke="#c99862" stroke-width="5" stroke-linecap="round"/>
+    <rect x="20" y="48" width="19" height="19" rx="4" fill="#f0d09b" transform="rotate(-20 30 58)"/>
+    <rect x="31" y="65" width="17" height="17" rx="4" fill="#d59a55" transform="rotate(13 39 73)"/>
+    <path d="M78 74 91 20" fill="none" stroke="#c99862" stroke-width="5" stroke-linecap="round"/>
+    <path d="M81 49c8-11 19-8 18 4-1 9-14 13-20 4" fill="#6ca85c"/>
+    <circle cx="94" cy="66" r="10" fill="#f6e7c8"/>
+    <circle cx="96" cy="65" r="4" fill="#e8a83f"/>
+    <path d="M110 77 128 27" fill="none" stroke="#c99862" stroke-width="5" stroke-linecap="round"/>
+    <path d="M119 50q9-8 17-1 4 8-8 11-10 2-9-10Z" fill="#f4c95d"/>
+    <path d="M110 65q10-8 18 0 4 9-9 12-10 1-9-12Z" fill="#73ae65"/>
+  </g>
+  <path d="M26 86Q29 129 80 138Q131 129 134 86Z" fill="#e08b3c" stroke="#2c1a18" stroke-width="5" stroke-linejoin="round"/>
+  <ellipse cx="80" cy="86" rx="54" ry="17" fill="#f1a64f" stroke="#2c1a18" stroke-width="5"/>
+  <ellipse cx="80" cy="87" rx="46" ry="12" fill="#c4472e"/>
+  <g stroke="#2c1a18" stroke-width="3.5">
+    <circle cx="52" cy="88" r="9" fill="#f4d9a6"/>
+    <circle cx="76" cy="82" r="8" fill="#eab950"/>
+    <circle cx="99" cy="90" r="9" fill="#f1e2c8"/>
+    <path d="M36 94q13 8 26 4" fill="none" stroke="#f7c35e" stroke-width="4" stroke-linecap="round"/>
+    <path d="M83 97q17 6 33-3" fill="none" stroke="#76ad62" stroke-width="5" stroke-linecap="round"/>
+    <path d="M55 102q13 5 25 1" fill="none" stroke="#f4d9a6" stroke-width="4" stroke-linecap="round"/>
+    <path d="M67 76q8-3 16 0" fill="none" stroke="#8b2c22" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <g fill="#f9e8c9">
+    <circle cx="65" cy="90" r="1.7"/>
+    <circle cx="88" cy="84" r="1.5"/>
+    <circle cx="109" cy="94" r="1.6"/>
+    <circle cx="44" cy="101" r="1.4"/>
+  </g>
+  <path d="M37 110q8 11 20 16" fill="none" stroke="#f4bd80" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+  <path d="M111 84c5-2 7-7 5-11" fill="none" stroke="#f7d8a0" stroke-width="3.5" stroke-linecap="round" opacity=".65"/>
+</svg>

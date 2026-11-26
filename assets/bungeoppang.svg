@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="붕어빵, 鲫鱼饼">
+  <ellipse cx="82" cy="137" rx="53" ry="9" fill="#2a1a17" opacity=".14"/>
+  <g fill="none" stroke="#f5e5c9" stroke-width="4" stroke-linecap="round" opacity=".58">
+    <path d="M58 50c-8-10 7-16 0-27"/>
+    <path d="M84 45c-8-11 7-17 0-29"/>
+    <path d="M109 51c-8-10 7-16 0-27"/>
+  </g>
+  <path d="M36 79 14 58q-4-2-3 4l10 24-10 24q-1 6 3 4l22-21Z" fill="#d99535" stroke="#2c1a18" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M37 86c2-27 38-44 71-33 23 8 29 26 17 41-15 20-51 27-73 13-9-6-15-12-15-21Z" fill="#eeb04b" stroke="#2c1a18" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M67 55c10-8 31-9 43-1" fill="none" stroke="#c8832a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M80 112c16 1 33-5 42-15" fill="none" stroke="#c8832a" stroke-width="4" stroke-linecap="round" opacity=".75"/>
+  <path d="M64 72c11 7 26 10 39 8M57 86c14 8 33 11 49 7M69 61c11 5 24 7 36 6M70 100c12 4 26 4 38-1M93 61c5 10 7 22 5 33M78 58c5 12 6 26 3 39M111 67c4 8 5 17 3 25" fill="none" stroke="#bf7c25" stroke-width="3.1" stroke-linecap="round" opacity=".7"/>
+  <circle cx="119" cy="77" r="5.5" fill="#2c1a18"/>
+  <circle cx="120.5" cy="75" r="1.8" fill="#fff4dc"/>
+  <path d="M128 87q5 2 8-1" fill="none" stroke="#2c1a18" stroke-width="4" stroke-linecap="round"/>
+  <path d="M99 97q13 9 26 2" fill="none" stroke="#dc8d30" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+  <path d="M48 88q6 6 5 13" fill="none" stroke="#f7ce7e" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="63" cy="91" r="2" fill="#a86820" opacity=".8"/>
+  <circle cx="90" cy="83" r="2" fill="#a86820" opacity=".8"/>
+  <circle cx="102" cy="90" r="1.7" fill="#a86820" opacity=".8"/>
+</svg>
