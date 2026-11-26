@@ -11,6 +11,9 @@
 
 **HTML · CSS · JavaScript · No build · No external runtime library**
 
+**데모 / 在线体验:** https://wsnd0927-wq.github.io/two-city-night-market/  
+**저장소 / 仓库:** https://github.com/wsnd0927-wq/two-city-night-market
+
 ![두 도시 야시장 홈 화면 / 双城夜市首页](assets/screenshot-home.jpg)
 
 </div>
@@ -75,7 +78,7 @@ python -m http.server 4173
 1. GitHub 저장소의 **Settings → Pages**로 이동합니다. / 进入仓库的 **Settings → Pages**。
 2. **Source**를 `Deploy from a branch`로 선택합니다. / 选择 `Deploy from a branch`。
 3. Branch를 `main`, 폴더를 `/ (root)`로 저장합니다. / 分支选择 `main`，目录选择 `/ (root)` 并保存。
-4. 잠시 후 `https://<username>.github.io/two-city-night-market/`에서 확인합니다. / 稍后访问 `https://<username>.github.io/two-city-night-market/`。
+4. 잠시 후 `https://wsnd0927-wq.github.io/two-city-night-market/`에서 확인합니다. / 稍后访问 `https://wsnd0927-wq.github.io/two-city-night-market/`。
 
 모든 경로가 상대 경로라서 별도 서버 설정 없이 정적 호스팅에서 동작합니다.  
 所有路径均为相对路径，可直接用于静态托管。
